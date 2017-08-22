@@ -1,14 +1,18 @@
-" pathogen 
+" pathogen
 execute pathogen#infect()
-" note : plugins used
+" plugins used
+"   python-mode
+"   vim-airline
+"   vim-sensible
 "   nerdtree
 "   supertab
-"   syntastic
-"   vim-sensible
-"   mayansmoke
-"   vim-airline
 "   vim-airline-themes
+"   vim-fugitive
+"   vim-toml
 "   powerline
+"   syntastic
+"   mayansmoke
+"   vim-multiple-cursors
 
 syntax on
 filetype plugin indent on
@@ -19,6 +23,7 @@ set hlsearch
 set clipboard=unnamedplus
 set number
 set cursorline
+set splitright
 
 " tabs
 set expandtab
@@ -29,7 +34,7 @@ set softtabstop=2
 " colors
 set t_Co=256
 set background=light
-colorscheme mayansmoke 
+colorscheme mayansmoke
 hi Normal cterm=NONE ctermfg=16  ctermbg=254
 hi CursorLine ctermfg=NONE ctermbg=252 cterm=NONE
 hi Keyword ctermfg=91
@@ -41,7 +46,8 @@ hi LineNr ctermfg=253 ctermbg=24 cterm=NONE
 " nerdtree
 " close nerdtree if last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
+" hide some python files
+let NERDTreeIgnore = ['__pycache__', '__init__.py']
 
 " syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -62,6 +68,7 @@ let g:pymode_folding = 0
 let g:pymode_rope = 1
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
+let g:pymode_rope_lookup_project = 0
 " from http://stackoverflow.com/questions/3105307/how-do-you-automatically-remove-the-preview-window-after-autocompletion-in-vim
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -73,10 +80,6 @@ map <C-n> :NERDTreeToggle<CR>
 " shortcut for JSON formating
 nmap =j :%!python -m json.tool<CR>
 
-" fonts 
+" fonts
 let g:airline_powerline_fonts = 1
 let g:airline_theme='cool'
-
-" filetypes for templates
-autocmd BufNewFile,BufRead *.tpl set ft=tpl
-
