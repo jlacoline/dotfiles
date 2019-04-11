@@ -40,3 +40,8 @@ if ! grep "# source /usr/local/bin/virtualenvwrapper.sh" ~/.bashrc
 then
   printf "\n# source virtualenvwrapper script\nsource /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 fi
+
+# some git configuration
+git config --global user.email "jean.lacoline@gmail.com"
+git config --global user.name "jlacoline"
+git config --global core.editor "vim"
