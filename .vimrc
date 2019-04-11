@@ -1,4 +1,3 @@
-" pathogen
 execute pathogen#infect()
 " plugins used
 "   python-mode
@@ -65,7 +64,7 @@ let g:syntastic_python_checkers=['flake8']
 let g:pymode_lint = 0
 let g:pymode_folding = 0
 "set foldlevel=99 " folds opened by default
-let g:pymode_rope = 1
+let g:pymode_rope = 0
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 let g:pymode_rope_lookup_project = 0
@@ -93,3 +92,6 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " shortcut for "set paste"
 set pastetoggle=<F2>
+
+" show hidden files in ctrlp
+let g:ctrlp_show_hidden = 1
