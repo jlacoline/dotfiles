@@ -7,7 +7,7 @@ sudo apt-get update
 sudo apt-get -y install git vim tmux curl
 
 # move all dotfiles
-for f in .inputrc .vimrc .tmux.conf; do
+for f in .inputrc .vimrc .tmux.conf .dotfiles.bashrc; do
     cp "$DIR/$f" ~
 done
 
@@ -36,9 +36,11 @@ fuck
 # python virtualenvs
 sudo apt-get -y install python-pip
 sudo pip install virtualenvwrapper
-if ! grep "# source virtualenvwrapper script" ~/.bashrc
+
+# .bashrc update
+if ! grep "# source jlacoline dotfiles" ~/.bashrc
 then
-  printf "\n# source virtualenvwrapper script\nsource /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
+  printf "\n# source jlacoline dotfiles\nsource ~/.dotfiles.bashrc" >> ~/.bashrc
 fi
 
 # some git configuration
