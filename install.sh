@@ -36,7 +36,7 @@ fuck
 # python virtualenvs
 sudo apt-get -y install python-pip
 sudo pip install virtualenvwrapper
-if ! grep "# source /usr/local/bin/virtualenvwrapper.sh" ~/.bashrc
+if ! grep "# source virtualenvwrapper script" ~/.bashrc
 then
   printf "\n# source virtualenvwrapper script\nsource /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 fi
