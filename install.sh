@@ -20,11 +20,24 @@ git clone https://github.com/vim-scripts/mayansmoke.git
 git clone https://github.com/python-mode/python-mode.git
 git clone https://github.com/vim-airline/vim-airline.git
 git clone https://github.com/scrooloose/nerdtree.git
-git clone https://github.com/ervandew/supertab.git
 git clone https://github.com/vim-airline/vim-airline-themes.git
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/vim-syntastic/syntastic.git
 git clone https://github.com/kien/ctrlp.vim.git
+git clone https://github.com/christoomey/vim-tmux-navigator.git
+git clone https://github.com/pearofducks/ansible-vim.git
+git clone https://github.com/ctrlpvim/ctrlp.vim.git
+git clone https://github.com/Shougo/deoplete.nvim.git
+git clone https://github.com/deoplete-plugins/deoplete-jedi.git
+git clone https://github.com/iamcco/markdown-preview.nvim.git
+git clone https://github.com/noah/vim256-color.git
+git clone https://github.com/chikamichi/mediawiki.vim.git
+git clone https://github.com/roxma/nvim-yarp.git
+git clone https://github.com/fatih/vim-go.git
+git clone https://github.com/roxma/vim-hug-neovim-rpc.git
+git clone https://github.com/tsandall/vim-rego.git
+git clone https://github.com/stephpy/vim-yaml.git
+
 cd -
 
 # thefuck
@@ -35,7 +48,7 @@ fuck
 
 # python virtualenvs
 sudo apt-get -y install python-pip
-sudo pip install virtualenvwrapper
+pip install virtualenvwrapper
 
 # .bashrc update
 if ! grep "# source jlacoline dotfiles" ~/.bashrc

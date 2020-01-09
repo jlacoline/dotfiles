@@ -1,17 +1,25 @@
 execute pathogen#infect()
 " plugins used
-"   python-mode
-"   vim-airline
-"   vim-sensible
-"   nerdtree
-"   supertab
-"   vim-airline-themes
-"   vim-fugitive
-"   vim-toml
-"   powerline
-"   syntastic
+"   ansible-vim
 "   mayansmoke
-"   vim-multiple-cursors
+"   syntastic
+"   vim-go
+"   ctrlp.vim
+"   mediawiki.vim
+"   vim256-color
+"   vim-hug-neovim-rpc
+"   deoplete-jedi
+"   nerdtree
+"   vim-airline
+"   vim-rego
+"   deoplete.nvim
+"   nvim-yarp
+"   vim-airline-themes
+"   vim-tmux-navigator
+"   markdown-preview.vim
+"   python-mode
+"   vim-fugitive
+"   vim-yaml
 
 syntax on
 filetype plugin indent on
@@ -95,3 +103,43 @@ set pastetoggle=<F2>
 
 " show hidden files in ctrlp
 let g:ctrlp_show_hidden = 1
+
+" tmux navigator
+let g:tmux_navigator_disable_when_zoomed = 1
+
+" https://thoughtbot.com/blog/faster-grepping-in-vim
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" grep opens a new tab
+command! -nargs=1 Grep execute "tabnew | grep <args> | cw"
+
+" ansible-vim
+au BufRead,BufNewFile *.yml.j2 set filetype=yaml.jinja2
+
+" syntastic go linter
+let g:syntastic_go_checkers=['golint']
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+
+" yaml indentation
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+
+" shortcut for removing trailing spaces
+:nnoremap <silent> <F3> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
+" markdown preview
+let g:mkdp_auto_close = 0
